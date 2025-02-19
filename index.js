@@ -14,9 +14,19 @@ const quotes = [
 // Route to get a random quote
 app.get('/quote', (req, res) => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
+    if(randomindex)
     res.json({ quote: quotes[randomIndex] });
 });
+// dd more routes (e.g., /all-quotes to return all quotes)?
+app.get('/all-quotes',(req,  res) => {
 
+    allQoutes = [];
+    for( let i = 0 ;i < quotes.length; i++){
+        allQoutes.push({id : i, quote: quotes[i]});
+    }
+    res.json(allQoutes);
+
+});
 
 // Start the server
 app.listen(port, () => {
